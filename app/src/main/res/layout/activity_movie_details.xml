@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MovieDetailsActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/posterImageDetailsIV"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_alignParentTop="true"
+                android:scaleType="fitXY" />
+
+
+            <TextView
+                android:id="@+id/titleDetailsTV"
+                android:layout_below="@+id/posterImageDetailsIV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Movie title"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/TitleColor"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"/>
+
+            <TextView
+                android:id="@+id/releaseDateTextTV"
+                android:textColor="@color/TitleColor"
+                android:textStyle="bold"
+                android:layout_below="@+id/titleDetailsTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:text="@string/release_date"/>
+
+            <TextView
+                android:id="@+id/releaseDateTV"
+                android:layout_below="@+id/titleDetailsTV"
+                android:layout_toRightOf="@id/releaseDateTextTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                tools:text="04-07-2014"/>
+
+
+            <TextView
+                android:id="@+id/genreTextTV"
+                android:textColor="@color/TitleColor"
+                android:textStyle="bold"
+                android:layout_below="@+id/releaseDateTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:text="@string/genres"/>
+
+            <TextView
+                android:id="@+id/genresTV"
+                android:layout_toRightOf="@+id/genreTextTV"
+                android:layout_below="@+id/releaseDateTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                tools:text="Genres"/>
+
+            <TextView
+                android:id="@+id/overviewTextTV"
+                android:textColor="@color/TitleColor"
+                android:layout_below="@+id/genresTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:textStyle="bold"
+                android:text="@string/overview"/>
+
+
+            <TextView
+                android:id="@+id/overviewTV"
+                android:layout_below="@+id/overviewTextTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                tools:text="Overview"/>
+
+
+            <ImageView
+                android:id="@+id/backdropImageDetailsIV"
+                android:layout_below="@+id/overviewTV"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                />
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+</FrameLayout>
