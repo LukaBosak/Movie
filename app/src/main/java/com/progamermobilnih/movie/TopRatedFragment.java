@@ -85,11 +85,11 @@ public class TopRatedFragment extends Fragment {
 
     private void loadJson(){
 
-        Call<MovieResponse> call = api.getTopRated(MainActivity.API_KEY);
+        Call<MoviePojo> call = api.getTopRated(MainActivity.API_KEY);
 
-        call.enqueue(new Callback<MovieResponse>() {
+        call.enqueue(new Callback<MoviePojo>() {
             @Override
-            public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
+            public void onResponse(Call<MoviePojo> call, Response<MoviePojo> response) {
 
                 if(response.isSuccessful() && response.body() != null){
 
@@ -103,7 +103,7 @@ public class TopRatedFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<MovieResponse> call, Throwable t) {
+            public void onFailure(Call<MoviePojo> call, Throwable t) {
 
             }
         });

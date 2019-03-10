@@ -1,8 +1,5 @@
 package com.progamermobilnih.movie;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -83,11 +80,11 @@ public class PopularFragment extends Fragment {
 
     private void loadJson(){
 
-        Call<MovieResponse> call = api.getPopular(MainActivity.API_KEY);
+        Call<MoviePojo> call = api.getPopular(MainActivity.API_KEY);
 
-        call.enqueue(new Callback<MovieResponse>() {
+        call.enqueue(new Callback<MoviePojo>() {
             @Override
-            public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
+            public void onResponse(Call<MoviePojo> call, Response<MoviePojo> response) {
 
                 if(response.isSuccessful() && response.body() != null){
 
@@ -102,7 +99,7 @@ public class PopularFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<MovieResponse> call, Throwable t) {
+            public void onFailure(Call<MoviePojo> call, Throwable t) {
 
             }
         });

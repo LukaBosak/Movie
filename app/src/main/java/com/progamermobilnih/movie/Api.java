@@ -12,16 +12,16 @@ public interface Api {
 
 
     @GET("movie/popular")
-    Call<MovieResponse> getPopular(@Query("api_key") String apiKey);
+    Call<MoviePojo> getPopular(@Query("api_key") String apiKey);
 
     @GET("movie/top_rated")
-    Call<MovieResponse> getTopRated(@Query("api_key") String apiKey);
+    Call<MoviePojo> getTopRated(@Query("api_key") String apiKey);
 
     @GET("genre/movie/list")
-    Call<Pojo> getGenreApi(@Query("api_key") String apiKey);
+    Call<GenrePojo> getGenreApi(@Query("api_key") String apiKey);
 
     @GET("movie/{id}/{similar}")
-    Call<MovieResponse> getSimilar(@Path("id") int id,@Path("similar") String similar, @Query("api_key") String apiKey);
+    Call<MoviePojo> getSimilar(@Path("id") int id, @Path("similar") String similar, @Query("api_key") String apiKey);
 
 
 

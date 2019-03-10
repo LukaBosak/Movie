@@ -130,12 +130,12 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private void loadGenre(){
 
 
-        Call<Pojo> callGenre = api.getGenreApi(MainActivity.API_KEY);
+        Call<GenrePojo> callGenre = api.getGenreApi(MainActivity.API_KEY);
 
-        callGenre.enqueue(new Callback<Pojo>() {
+        callGenre.enqueue(new Callback<GenrePojo>() {
 
             @Override
-            public void onResponse(Call<Pojo> call, Response<Pojo> response) {
+            public void onResponse(Call<GenrePojo> call, Response<GenrePojo> response) {
 
                 if(response.isSuccessful() && response.body() != null){
                     genresList = response.body().getGenres();
@@ -145,7 +145,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Pojo> call, Throwable t) {
+            public void onFailure(Call<GenrePojo> call, Throwable t) {
             }
         });
 
@@ -158,11 +158,11 @@ public class MovieDetailsActivity extends AppCompatActivity {
         if (intent.hasExtra(MOVIE_ID)){
             movieId = intent.getIntExtra(MOVIE_ID,0);
         }
-        Call<MovieResponse> call = api.getSimilar(movieId,"similar",MainActivity.API_KEY);
+        Call<MoviePojo> call = api.getSimilar(movieId,"similar",MainActivity.API_KEY);
 
-        call.enqueue(new Callback<MovieResponse>() {
+        call.enqueue(new Callback<MoviePojo>() {
             @Override
-            public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
+            public void onResponse(Call<MoviePojo> call, Response<MoviePojo> response) {
 
                 if(response.isSuccessful() && response.body() != null){
 
@@ -176,7 +176,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<MovieResponse> call, Throwable t) {
+            public void onFailure(Call<MoviePojo> call, Throwable t) {
 
             }
         });
