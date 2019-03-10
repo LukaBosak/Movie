@@ -1,4 +1,4 @@
-package com.progamermobilnih.movie;
+package com.progamermobilnih.movie.Fragments;
 
 
 import android.os.Bundle;
@@ -8,6 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.progamermobilnih.movie.Activities.MainActivity;
+import com.progamermobilnih.movie.Adapters.MovieAdapter;
+import com.progamermobilnih.movie.Api;
+import com.progamermobilnih.movie.Pojo.Movie;
+import com.progamermobilnih.movie.Pojo.MoviePojo;
+import com.progamermobilnih.movie.R;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.progamermobilnih.movie;
+package com.progamermobilnih.movie.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.progamermobilnih.movie.Activities.MovieDetailsActivity;
+import com.progamermobilnih.movie.Pojo.Movie;
+import com.progamermobilnih.movie.R;
 
 import java.util.ArrayList;
 import java.util.List;

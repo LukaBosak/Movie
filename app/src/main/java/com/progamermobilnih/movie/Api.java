@@ -1,6 +1,9 @@
 package com.progamermobilnih.movie;
 
 
+import com.progamermobilnih.movie.Pojo.GenrePojo;
+import com.progamermobilnih.movie.Pojo.MoviePojo;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

@@ -1,4 +1,4 @@
-package com.progamermobilnih.movie;
+package com.progamermobilnih.movie.Pojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,4 +1,4 @@
-package com.progamermobilnih.movie;
+package com.progamermobilnih.movie.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.progamermobilnih.movie.Adapters.MovieAdapter;
+import com.progamermobilnih.movie.Api;
+import com.progamermobilnih.movie.Pojo.Genre;
+import com.progamermobilnih.movie.Pojo.GenrePojo;
+import com.progamermobilnih.movie.Pojo.Movie;
+import com.progamermobilnih.movie.Pojo.MoviePojo;
+import com.progamermobilnih.movie.R;
 
 import java.util.ArrayList;
 import java.util.List;
