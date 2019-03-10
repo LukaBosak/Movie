@@ -110,17 +110,5 @@ public class PopularFragment extends Fragment {
 
     }
 
-    /*private void initListener(){
-
-        adapter.setOnItemClickListener(new MovieAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-
-                Intent intent = new Intent(getActivity(), MovieDetailsActivity.class);
-                startActivity(intent);
-
-            }
-        });
-    }*/
 
 }

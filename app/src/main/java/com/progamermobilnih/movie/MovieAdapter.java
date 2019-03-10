@@ -82,6 +82,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
                     intent.putExtra(MovieDetailsActivity.POSTER, movieList.get(position).getPosterPath());
                     intent.putExtra(MovieDetailsActivity.BACKDROP, movieList.get(position).getBackdropPath());
                     intent.putExtra(MovieDetailsActivity.OVERVIEW, movieList.get(position).getOverview());
+                    intent.putExtra(MovieDetailsActivity.MOVIE_ID, movieList.get(position).getId());
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
 

@@ -3,6 +3,8 @@ package com.progamermobilnih.movie;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,12 +30,19 @@ public class MovieDetailsActivity extends AppCompatActivity {
     public static final String GENRE = "genre";
     public static final String BACKDROP = "backdrop";
     public static final String OVERVIEW = "overview";
+    public static final String MOVIE_ID = "movie_id";
 
 
     private List<Genre> genresList = new ArrayList<>();
     private Retrofit retrofit = null;
     private Api api;
     private ArrayList<Integer> genreIds = new ArrayList<>();
+    RecyclerView recyclerViewSimilar;
+    RecyclerView.LayoutManager layoutManager;
+    MovieAdapter adapter;
+
+    int movieId;
+
 
 
     @Override
@@ -43,7 +52,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         setRetrofit();
         loadGenre();
+        loadSimilar();
         initWidgets();
+
 
 
     }
@@ -56,13 +67,18 @@ public class MovieDetailsActivity extends AppCompatActivity {
         genre = findViewById(R.id.genresTV);
         poster = findViewById(R.id.posterImageDetailsIV);
         backdrop = findViewById(R.id.backdropImageDetailsIV);
+        recyclerViewSimilar = findViewById(R.id.recyclerViewRVSimilar);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerViewSimilar.setLayoutManager(layoutManager);
+        recyclerViewSimilar.setNestedScrollingEnabled(false);
+
 
     }
 
     private void getData(){
 
-        Intent intent = getIntent();
         String genreName = "";
+        Intent intent = getIntent();
 
         if(intent.hasExtra(TITLE)){
             String titleData = intent.getStringExtra(TITLE);
@@ -135,6 +151,36 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
     }
 
+    private void loadSimilar(){
 
+        Intent intent = getIntent();
+
+        if (intent.hasExtra(MOVIE_ID)){
+            movieId = intent.getIntExtra(MOVIE_ID,0);
+        }
+        Call<MovieResponse> call = api.getSimilar(movieId,"similar",MainActivity.API_KEY);
+
+        call.enqueue(new Callback<MovieResponse>() {
+            @Override
+            public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
+
+                if(response.isSuccessful() && response.body() != null){
+
+                    List<Movie> similarMovies = response.body().getResults();
+
+                    adapter = new MovieAdapter(similarMovies,MovieDetailsActivity.this);
+                    recyclerViewSimilar.setAdapter(adapter);
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<MovieResponse> call, Throwable t) {
+
+            }
+        });
+
+    }
 
 }

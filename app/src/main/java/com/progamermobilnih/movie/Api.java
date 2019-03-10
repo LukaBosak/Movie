@@ -3,6 +3,7 @@ package com.progamermobilnih.movie;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface Api {
@@ -18,6 +19,12 @@ public interface Api {
 
     @GET("genre/movie/list")
     Call<Pojo> getGenreApi(@Query("api_key") String apiKey);
+
+    @GET("movie/{id}/{similar}")
+    Call<MovieResponse> getSimilar(@Path("id") int id,@Path("similar") String similar, @Query("api_key") String apiKey);
+
+
+
 
 
 
