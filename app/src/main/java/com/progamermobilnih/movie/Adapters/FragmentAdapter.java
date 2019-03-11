@@ -14,7 +14,7 @@ import com.progamermobilnih.movie.Fragments.TopRatedFragment;
 public class FragmentAdapter extends FragmentPagerAdapter {
 
     private static final int NUMBER_OF_FRAGMENTS = 2;
-    Context context;
+    private Context context;
 
 
     public FragmentAdapter(FragmentManager fm, Context context) {

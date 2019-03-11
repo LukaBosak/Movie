@@ -7,8 +7,6 @@ import com.google.gson.annotations.SerializedName;
 public class Movie {
 
 
-
-
     @SerializedName("vote_count")
     @Expose
     private Integer voteCount;

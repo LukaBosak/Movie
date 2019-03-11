@@ -26,15 +26,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TopRatedFragment extends Fragment {
 
-    View view;
+    private View view;
     private RecyclerView recyclerView;
-
-
     private MovieAdapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
-
-
-    private Retrofit retrofit = null;
     private Api api;
 
 
@@ -75,14 +69,14 @@ public class TopRatedFragment extends Fragment {
     private void initWidgets(){
 
         recyclerView = view.findViewById(R.id.recyclerViewRVTopRated);
-        layoutManager = new LinearLayoutManager(getContext().getApplicationContext());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext().getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
     }
 
     private void setRetrofit(){
 
-        retrofit = new Retrofit.Builder()
+        Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.MOVIE_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

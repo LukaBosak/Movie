@@ -41,14 +41,12 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
 
     private List<Genre> genresList = new ArrayList<>();
-    private Retrofit retrofit = null;
     private Api api;
     private ArrayList<Integer> genreIds = new ArrayList<>();
-    RecyclerView recyclerViewSimilar;
-    RecyclerView.LayoutManager layoutManager;
-    MovieAdapter adapter;
+    private RecyclerView recyclerViewSimilar;
+    private MovieAdapter adapter;
 
-    int movieId;
+    private int movieId;
 
 
 
@@ -75,7 +73,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         poster = findViewById(R.id.posterImageDetailsIV);
         backdrop = findViewById(R.id.backdropImageDetailsIV);
         recyclerViewSimilar = findViewById(R.id.recyclerViewRVSimilar);
-        layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerViewSimilar.setLayoutManager(layoutManager);
         recyclerViewSimilar.setNestedScrollingEnabled(false);
 
@@ -126,7 +124,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
     private void setRetrofit(){
 
-        retrofit = new Retrofit.Builder()
+        Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.MOVIE_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
